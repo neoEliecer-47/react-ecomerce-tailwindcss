@@ -4,6 +4,7 @@ import MenuIcon from '@/components/icons/MenuIcon'
 import CartIcon from '@/components/icons/CartIcon'
 import CloseIcon from '@/components/icons/CloseIcon'
 import { useState } from 'react'
+import NavLinkHeader from '@/components/header/NavLinkHeader'
 
 
 const MainHeader = () => { 
@@ -26,30 +27,35 @@ const MainHeader = () => {
     
     
     return (
-    
-        <header className='container mx-auto flex items-center gap-8 px-4 py-8 bg-gray-100'>
-            <button className='md:hidden' onClick={handleOpenMenu}>
-                <MenuIcon />
-            </button>
-            <img src={logoSneakers} alt="" className='mr-auto mb-1 h-5 md:mr-0'/>
-            
-            <nav className={classActive}>
-                <button className='mb-12 md:hidden' onClick={handleCloseMenu}>
-                    <CloseIcon />
+        
+        <>
+            <header className='container mx-auto flex items-center gap-8 px-2 py-4 md:py-0'>
+                <button className='md:hidden' onClick={handleOpenMenu}>
+                    <MenuIcon />
                 </button>
-                <a href="#">Collections</a>
-                <a href="#">Men</a>
-                <a href="#">Women</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-            </nav>
-            <div className='flex gap-4'>
-                <button>
-                    <CartIcon />
-                </button>
-                <img src={imagePerfil} alt="" className='w-9'/>
-            </div>
-        </header>
+                <img src={logoSneakers} alt="" className='mr-auto mb-1 h-5 md:mr-0'/>
+                
+                <nav className={classActive}>
+                    <button className='mb-12 md:hidden' onClick={handleCloseMenu}>
+                        <CloseIcon />
+                    </button>
+                    <NavLinkHeader text="Collections"/>
+                    <NavLinkHeader text="Men"/>
+                    <NavLinkHeader text="Women"/>
+                    <NavLinkHeader text="About"/>
+                    <NavLinkHeader text="Contact"/>
+                    
+                </nav>
+                <div className='flex gap-4'>
+                    <button>
+                        <CartIcon />
+                    </button>
+                    <img src={imagePerfil} alt="" className='w-9'/>
+                </div>
+            </header>
+            <span className='hidden container mx-auto md:block h-[2px] w-full bg-gray-500'></span>
+        
+        </>
         
         ) 
     
