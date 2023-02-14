@@ -7,6 +7,7 @@ import { useState } from 'react'
 import NavLinkHeader from '@/components/header/NavLinkHeader'
 
 
+
 const MainHeader = () => { 
     
     const [classActive, setClassActive] = useState("hidden font-bold md:static md:mr-auto md:flex md:h-auto md:flex-row md:gap-5 md:p-0")
@@ -14,21 +15,26 @@ const MainHeader = () => {
 
     const handleOpenMenu = () => {
        setClassActive(
-        "absolute top-0 left-0 flex h-full w-4/5 flex-col gap-y-[21px] bg-white p-8 font-bold md:static md:mr-auto md:flex md:h-auto md:flex-row md:gap-4 md:p-0"
+        "absolute top-0 left-0 flex h-full w-4/5 flex-col gap-y-[21px] bg-white p-8 font-bold md:static md:mr-auto md:flex md:h-auto md:flex-row md:gap-4 md:p-0 z-10"
        )
+        
     }
 
-
+    
+    
+    
     const handleCloseMenu = () => (
         setClassActive(
             "hidden font-bold md:static md:mr-auto md:flex md:h-auto md:flex-row md:gap-4 md:p-0"
             )
     )
     
-    
+ 
     return (
         
         <>
+            
+            
             <header className='container mx-auto flex items-center gap-8 px-2 py-4 md:py-0'>
                 <button className='md:hidden' onClick={handleOpenMenu}>
                     <MenuIcon />
@@ -53,7 +59,7 @@ const MainHeader = () => {
                     <img src={imagePerfil} alt="" className='w-9'/>
                 </div>
             </header>
-            <span className='hidden container mx-auto md:block h-[2px] w-full bg-gray-500'></span>
+            <span className='hidden container mx-auto md:block h-[3px] w-full bg-gray-500'></span>
         
         </>
         
@@ -67,3 +73,6 @@ export default MainHeader
 //"absolute top-0 left-0 flex h-full w-4/5 flex-col gap-y-[21] p-8 
 //font-bold 
 //md:mr-auto md:flex md:flex-row md:gap-5 bg-gray-400 md:static"
+
+
+
