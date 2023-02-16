@@ -11,7 +11,8 @@ export default ({array_imgs = [], array_imgsSmall = [],
     const btnSlider = useRef(null)
 
     useEffect(() => {
-        itsOpenModal && btnSlider.current.classList.remove('md:hidden')//si esta en true removemos la clase hidden con javascript nativo
+        itsOpenModal && btnSlider.current.classList.remove('md:hidden') //si esta en true removemos la clase hidden con javascript nativo
+        if(itsOpenModal) btnSlider.current.classList.remove('md:cursor-zoom-in')
     }, [itsOpenModal]) //estará pediente si el valor del modal cambia a false o true
     
     const [imgIndex, setImgIndex] = useState(0) //el useState cuando detecta un cambio, vuelve a renderizar el JSX
@@ -38,7 +39,7 @@ export default ({array_imgs = [], array_imgsSmall = [],
                 itsOpenModal && <button className='text-right md:col-span-4' onClick={handleCloseModal}>cerrar</button>
             }
             <div className='relative col-span-4'>
-                <img src={array_imgs[imgIndex]} alt="" className='aspect-[16/13] w-full md:aspect-[16/15] md:rounded-md md:cursor-zoom-in' onClick={handleOpenModal}/> {/*hacer las imagenes dinamicas */}
+                <img src={array_imgs[imgIndex]} alt="" className={`aspect-[16/13] w-full md:aspect-[16/14] xl:aspect-[15/8] 2xl:max-h-[500px] md:rounded-md ${!itsOpenModal && "md:cursor-zoom-in"}`} onClick={handleOpenModal}/> {/*hacer las imagenes dinamicas */}
                 <div ref={btnSlider} className='absolute top-1/2 left-0 -translate-y-1/2 flex w-full justify-between px-4 md:hidden'>
                     <button onClick={handleClickprev} className='bg-white h-10 w-10 rounded-full flex justify-center items-center hover:bg-gray-400 transition-all'>
                         <PrevIcon />
