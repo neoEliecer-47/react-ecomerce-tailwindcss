@@ -18,15 +18,27 @@ const array_imgs = [imageProduct1, imageProduct2, imageProduct3, imageProduct4]
 const array_imgsSmall = [SmallProduct1, SmallProduct2, SmallProduct3, SmallProduct4]
 
 
+const objectProduct = {
+    id: 1,
+    company: "SNEAKER COMPANY",
+    nameProduct: "Fall Limited Edition Sneakers",
+    description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+    price: 250,
+    discount: 0.45,//50%
+    mainImage: array_imgs,
+    smallImage: array_imgsSmall
+}
 
 const MainProducts = () => { 
     return (
-        <main className="grid grid-cols-1 gap-8 md:grid-cols-2 md:min-h-[calc(100vh-88px-3px)] items-center md:container md:mx-auto">
-            <MainImages array_imgs={array_imgs} array_imgsSmall={array_imgsSmall}/>
-            <DetailsProduct />
+        <main className="grid grid-cols-1 items-center gap-8 md:container md:mx-auto md:min-h-[calc(100vh-88px-3px)] md:grid-cols-2">
+            <MainImages
+                array_imgs={objectProduct.mainImage}
+                array_imgsSmall={objectProduct.smallImage}
+            />
+            <DetailsProduct objectProduct={objectProduct} />
         </main>
-        
-    ) 
+    ); 
 }
 
 export default MainProducts
